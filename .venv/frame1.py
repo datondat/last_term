@@ -17,7 +17,7 @@ class new_frame:
         r2.pack(pady=10)
         r3 = ttk.Entry(m)
         r3.pack(pady=10)
-        b=ttk.Button(master=m,text="enter")
+        b=ttk.Button(master=m,text="enter",command=lambda : working.done(m,r))
         b.pack()
         m.focus()
         m.mainloop()
