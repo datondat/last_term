@@ -1,4 +1,4 @@
-from frame1 import new_frame
+from project.frame1 import new_frame
 class lenh:
     # ---------
     def Click(event):
