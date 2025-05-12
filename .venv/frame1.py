@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
-from doing import working
+from Frame2 import working
 class new_frame:
     def new(m):
         m.destroy()
