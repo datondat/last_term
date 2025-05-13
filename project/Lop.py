@@ -1,4 +1,5 @@
-from project.frame1 import new_frame
+from frame2 import working
+from ConnectSV import connect
 class lenh:
     # ---------
     def Click(event):
@@ -21,7 +22,6 @@ class lenh:
 
     #------------
     def gett(m, a, b):
-        print(a.get())
-        print(b.get())
-        if a.get()=="x" and b.get()=="y":
-            new_frame.new(m)
+        conn=connect()
+        if conn.get1(a.get(),b.get()):
+            working.create(m)
