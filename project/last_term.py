@@ -1,12 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
 from Lop import lenh
+from ConnectSV import connect
 #----------
 #----------
 m=tk.Tk()
 m.title("hotel")
 lenh.center_window(m)
 m.geometry('200x200')
+
 m.resizable(0,0)
 t_label=ttk.Label(master=m,text='LOG IN',font=("Arial",30))
 t_label.pack()
