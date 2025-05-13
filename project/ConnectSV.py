@@ -6,7 +6,7 @@ class connect:
             user='root',
             password='',
             host='localhost',
-            database='hotel'  # đúng là 'database', không phải 'name'
+            database='hotel'
         )
 
     def get1(self, x, y):
