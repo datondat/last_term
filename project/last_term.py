@@ -2,6 +2,8 @@ import tkinter as tk
 from tkinter import ttk
 from Lop import lenh
 from ConnectSV import connect
+from project.frame1 import new_frame
+
 #----------
 #----------
 m=tk.Tk()
@@ -28,5 +30,7 @@ e1.bind("<FocusOut>", lambda event: lenh.Leave(event, "Password"))
 b=ttk.Button(master=m,text="Login", command = lambda: lenh.gett(m,e,e1))
 b.pack(padx=6)
 #-------------
+b1=ttk.Button(master=m,text="New account", command=lambda : new_frame.new(m))
+b1.pack()
 m.focus()
 m.mainloop()

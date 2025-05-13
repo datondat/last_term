@@ -30,7 +30,7 @@ class new_frame:
         l4.place(x=20,y=280)
         r4 = ttk.Entry(m)
         r4.place(x=90,y=280)
-        b=ttk.Button(master=m,text="enter",command=lambda : working.done(m,r))
+        b=ttk.Button(master=m,text="Register",command=lambda : working.done(m,r,r1,r2,r3,r4))
         b.place(x=80,y=320)
         m.focus()
         m.mainloop()

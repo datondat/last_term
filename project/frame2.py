@@ -1,5 +1,6 @@
 import tkinter as tk
 from tkinter import ttk
+from ConnectSV import connect
 
 class working:
     def create(m):
@@ -8,6 +9,6 @@ class working:
         m.focus()
         m.mainloop()
     #-------------
-    def done(m,x):
-        if (x.get()=="x"):
+    def done(m,a,b,c,d,e):
+        if connect().get2(a.get(),b.get(),c.get(),d.get(),e.get()):
             working.create(m)
