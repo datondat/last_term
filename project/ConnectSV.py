@@ -49,7 +49,6 @@ class connect:
                     (x,)
                     )
         a = cur.fetchone()
-        print(f"{a}")
         if a:
             return a['sta']
         else:
