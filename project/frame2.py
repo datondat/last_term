@@ -1,6 +1,7 @@
 import tkinter as tk
 from tkinter import ttk
 from ConnectSV import connect
+from getroom import pay
 
 class working:
     def create(m):
@@ -9,13 +10,16 @@ class working:
         width1=m.winfo_screenwidth()
         height1=m.winfo_screenheight()
         m.geometry("%dx%d"%(width1,height1))
+        x=0
         for row in range(5):
             for col in range(5):
+                x=x+1
                 tk.Button(
                     master=m,
-                    text=f"Room ({(row+1)*(col+1)})",
+                    text=f"Room {x}\n {connect().get3(x)}",
                     width=41,
                     height=10,
+                    command=lambda: pay.paynow(m)
                 ).grid(row=row,column=col,padx=3,pady=2)
         m.focus()
         m.mainloop()

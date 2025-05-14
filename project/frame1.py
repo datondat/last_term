@@ -1,6 +1,9 @@
 import tkinter as tk
 from tkinter import ttk
 from frame2 import working
+from project.Lop import lenh
+
+
 class new_frame:
     def new(m):
         m.destroy()
@@ -18,6 +21,7 @@ class new_frame:
         l2.place(x=20,y=120)
         r1 = ttk.Entry(m)
         r1.place(x=90,y=120)
+        r1.bind("<FocusIn>",lenh.Click)
         l2 = ttk.Label(master=m, text="Phone", font=('Arials', 10))
         l2.place(x=20,y=180)
         r2 = ttk.Entry(m)

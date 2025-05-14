@@ -1,5 +1,6 @@
 import mysql.connector
 from mysql.connector import Error
+import pandas as pd
 
 class connect:
     def __init__(self):
@@ -32,4 +33,13 @@ class connect:
             print(f"loi {x}")
             print(a, b, c, d, e)
             return False
-
+    def get3(self,x):
+        cur=self.db.cursor(dictionary=True)
+        cur.execute("Select * from rooms where rs='%s'",
+                    (x,)
+        )
+        a=cur.fetchone()
+        if a:
+            return f"Status: {a['sta']}\nBed: {a['bed']}\nType: {a['type']}\nCost: {a['cpd']} VND/Day"
+        else:
+            return "Room not found."
