@@ -43,3 +43,14 @@ class connect:
             return f"Status: {a['sta']}\nBed: {a['bed']}\nType: {a['type']}\nCost: {a['cpd']} VND/Day"
         else:
             return "Room not found."
+    def get4(self,x):
+        cur = self.db.cursor(dictionary=True)
+        cur.execute("Select sta from rooms where rs='%s'",
+                    (x,)
+                    )
+        a = cur.fetchone()
+        print(f"{a}")
+        if a:
+            return a['sta']
+        else:
+            return "Room not found."

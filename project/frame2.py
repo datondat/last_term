@@ -14,13 +14,24 @@ class working:
         for row in range(5):
             for col in range(5):
                 x=x+1
-                tk.Button(
-                    master=m,
-                    text=f"Room {x}\n {connect().get3(x)}",
-                    width=41,
-                    height=10,
-                    command=lambda: pay.paynow(m)
-                ).grid(row=row,column=col,padx=3,pady=2)
+                if connect().get4(x)=="Trống":
+                    tk.Button(
+                        master=m,
+                        text=f"Room {x}\n {connect().get3(x)}",
+                        width=41,
+                        height=10,
+                        bg="green",
+                        command=lambda: pay.paynow(m)
+                    ).grid(row=row,column=col,padx=3,pady=2)
+                else:
+                    tk.Button(
+                        master=m,
+                        text=f"Room {x}\n {connect().get3(x)}",
+                        width=41,
+                        height=10,
+                        bg="red",
+                        command=lambda: pay.paynow(m)
+                    ).grid(row=row, column=col, padx=3, pady=2)
         m.focus()
         m.mainloop()
     #-------------
