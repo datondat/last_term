@@ -8,6 +8,7 @@ class working:
     def create(m):
         m.destroy()
         m= tk.Tk()
+        m.title("Select room")
         a = [[0 for _ in range(5)] for _ in range(5)]
         width1=m.winfo_screenwidth()
         height1=m.winfo_screenheight()

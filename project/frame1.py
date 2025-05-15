@@ -8,6 +8,7 @@ class new_frame:
     def new(m):
         m.destroy()
         m=tk.Tk()
+        m.title("Register")
         m.geometry('250x400')
         m.resizable(0, 0)
         m.title("Register")

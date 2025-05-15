@@ -6,6 +6,7 @@ class neww:
     def create1(m,x):
         m.destroy()
         m= tk.Tk()
+        m.title("Pay")
         m.geometry("200x200")
         e1=tk.Entry()
         e1.pack()
