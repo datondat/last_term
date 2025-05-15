@@ -43,4 +43,4 @@ class working:
             working.create(m)
     def pay(m,x):
         common.aaaa=x
-        neww.create1(m)
+        neww.create1(m,common.aaaa)

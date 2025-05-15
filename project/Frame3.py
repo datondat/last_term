@@ -1,7 +1,9 @@
 import tkinter as tk
 from ConnectSV import connect
+
+import common
 class neww:
-    def create1(m):
+    def create1(m,x):
         m.destroy()
         m= tk.Tk()
         m.geometry("200x200")
@@ -15,3 +17,4 @@ class neww:
         b1.pack()
         m.focus()
         m.mainloop()
+

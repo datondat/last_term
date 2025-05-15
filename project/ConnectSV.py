@@ -1,6 +1,9 @@
 import mysql.connector
 from mysql.connector import Error
-
+import requests
+import base64
+from PIL import Image
+from io import BytesIO
 import common
 
 c=None
@@ -72,6 +75,31 @@ class connect:
         self.db.commit()
         cur.execute("UPDATE take SET thanhtoan = 'Done' WHERE phong = %s", (phong,))
         self.db.commit()
+        data = {
+            "accountNo": "0363296445",
+            "accountName": "NGUYEN QUOC DAT",
+            "acqId": "970422",
+            "amount": common.aaaa,
+            "addInfo": "Thanh toan don hang 123x`",
+            "format": "png"
+        }
+
+        response = requests.post("https://api.vietqr.io/v2/generate", json=data)
+        print("API response:", response.status_code, response.json())
+        if response.status_code == 200:
+            qr_data = response.json()
+            if qr_data["code"] == "00":
+                qr_base64 = qr_data['data']['qrDataURL']
+                if qr_base64:
+                    qr_image_data = base64.b64decode(qr_base64.split(",")[1])
+                    image = Image.open(BytesIO(qr_image_data))
+                    image.show()
+                else:
+                    print("Lỗi: Không có ảnh QR được trả về.")
+            else:
+                print("API trả về lỗi:", qr_data["desc"])
+        else:
+            print("Lỗi kết nối API:", response.status_code)
         return "Đặt phòng thành công"
     def submit1(self,ngay_den,ngay_di):
         cur = self.db.cursor()
