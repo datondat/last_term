@@ -79,7 +79,7 @@ class connect:
             "accountNo": "0363296445",
             "accountName": "NGUYEN QUOC DAT",
             "acqId": "970422",
-            "amount": common.aaaa,
+            "amount": 100000,
             "addInfo": "Thanh toan don hang 123x`",
             "format": "png"
         }
