@@ -1,7 +1,9 @@
 import mysql.connector
 from mysql.connector import Error
-import pandas as pd
 
+import common
+
+c=None
 class connect:
     def __init__(self):
         self.db = mysql.connector.connect(
@@ -13,6 +15,9 @@ class connect:
 
     def get1(self, x, y):
         cur = self.db.cursor()
+        global c
+        c=x
+
         cur.execute("SELECT * FROM users WHERE usn = %s and mk = %s", (x, y))
         result = cur.fetchone()
         return result is not None
@@ -53,3 +58,32 @@ class connect:
             return a['sta']
         else:
             return "Room not found."
+    def submit(self,ngay_den,ngay_di):
+        cur = self.db.cursor()
+
+        # Chèn dữ liệu vào MySQL
+        phong=common.aaaa
+        usn=c
+        query = "INSERT INTO take(dayget, dayleave,usn, phong) VALUES (%s, %s,%s,%s)"
+        values = (ngay_den, ngay_di,usn,phong,)
+        cur.execute(query, values)
+
+        cur.execute("UPDATE rooms SET sta = 'Hết' WHERE rs = %s", (phong,))
+        self.db.commit()
+        cur.execute("UPDATE take SET thanhtoan = 'Done' WHERE phong = %s", (phong,))
+        self.db.commit()
+        return "Đặt phòng thành công"
+    def submit1(self,ngay_den,ngay_di):
+        cur = self.db.cursor()
+
+        # Chèn dữ liệu vào MySQL
+        phong=common.aaaa
+        usn=c
+        cur.execute("DELETE FROM take WHERE usn = %s AND phong = %s", (usn, phong))
+        cur.execute("UPDATE rooms SET sta = 'Trống' WHERE rs = %s", (phong,))
+        self.db.commit()
+        cur.execute("UPDATE take SET thanhtoan = 'not yet' WHERE phong = %s", (phong,))
+        self.db.commit()
+        return "Trả phòng thành công"
+
+
