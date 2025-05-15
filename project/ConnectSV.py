@@ -84,7 +84,6 @@ class connect:
         }
 
         response = requests.post("https://api.vietqr.io/v2/generate", json=data)
-        print("API response:", response.status_code, response.json())
         if response.status_code == 200:
             qr_data = response.json()
             if qr_data["code"] == "00":
