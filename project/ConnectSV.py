@@ -64,7 +64,6 @@ class connect:
     def submit(self,ngay_den,ngay_di):
         cur = self.db.cursor()
 
-        # Chèn dữ liệu vào MySQL
         phong=common.aaaa
         usn=c
         query = "INSERT INTO take(dayget, dayleave,usn, phong) VALUES (%s, %s,%s,%s)"
@@ -104,7 +103,6 @@ class connect:
     def submit1(self,ngay_den,ngay_di):
         cur = self.db.cursor()
 
-        # Chèn dữ liệu vào MySQL
         phong=common.aaaa
         usn=c
         cur.execute("DELETE FROM take WHERE usn = %s AND phong = %s", (usn, phong))
