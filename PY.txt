@@ -1,0 +1,25 @@
+CREATE TABLE users(
+    usn VARCHAR(30) NOT NULL,
+	mk CHAR(30) NOT NULL,
+    mail CHAR(40) UNIQUE,
+    phone CHAR(11) UNIQUE,
+    cccd CHAR(12) PRIMARY KEY CHECK
+        (LENGTH(cccd) = 12)
+);
+CREATE TABLE rooms(
+	rs int primary key,
+	sta varchar(20) default 'Trống' check (sta='Trống' or sta='Hết')
+	bed int not null,
+	type varchar(30),
+	cpd int not null
+);
+CREATE TABLE take(
+    dayget DATE NOT NULL,
+    dayleave DATE,
+    usn VARCHAR(30) NOT NULL,
+    phong INT NOT NULL,
+    giaphong CHAR(20) NOT NULL,
+    thanhtoan CHAR(30) NOT NULL DEFAULT 'Not yet',
+    FOREIGN KEY(usn) REFERENCES users(usn),
+    FOREIGN KEY(phong) REFERENCES rooms(rs)
+)
